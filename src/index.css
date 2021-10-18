@@ -1,13 +1,238 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap");
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary: #0d1f2d;
+  --secondary: #546a7b;
+  --variable: #9ea3b0;
+  --white: #eee5e9;
+}
+
+.add__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  background: crimson;
+  font-size: 2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  color: var(--white);
+  z-index: 1;
+}
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background-color: var(--primary);
+  padding: 10px;
+}
+
+.navbar h2 {
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+.search {
+  padding: 10px;
+  background-color: var(--white);
+  border: 0;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 552px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+/* TASKS */
+
+.task {
+  background-color: var(--secondary);
+  width: 90%;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.task__header {
+  background-color: var(--primary);
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.task__header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.task__title {
+  text-transform: capitalize;
+  word-break: break-all;
+  color: var(--white);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.task__actions-container {
+  margin-right: 50px;
+  white-space: nowrap;
+}
+
+.task__actions {
+  background-color: transparent;
+  border: 0;
+  margin: 0 10px;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.task__body {
+  padding: 10px;
+}
+
+.task__date {
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.task__text {
+  color: var(--white);
+  font-weight: 300;
+}
+
+.task__complete-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-25px, 19px);
+}
+
+.task__complete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  padding: 5px;
+  color: #01c801;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.task__complete::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 552px) {
+  .task__header {
+    padding: 10px;
+  }
+
+  .task__actions-container {
+    margin-right: 40px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .task__header,
+  .task__body {
+    padding: 10px;
+  }
+  .task__actions-container {
+    margin-right: 0;
+  }
+}
+
+/* ADD MODAL */
+
+.add__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.904);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.add__input,
+.add__textarea {
+  padding: 10px;
+  resize: vertical;
+  background-color: var(--white);
+  border: 0;
+  margin: 10px 0;
+  width: 90%;
+  outline: none;
+  border-bottom: 3px solid var(--primary);
+  border-radius: 10px;
+}
+
+.add__textarea {
+  height: 150px;
+}
+
+.add__task-submit {
+  padding: 10px 20px;
+  background-color: var(--white);
+  border: 0;
+  border-radius: 5px;
+}
+
+.close__modal {
+  background-color: transparent;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 0;
+}
+
+.close__modal svg {
+  color: var(--white);
+  z-index: 1;
+}
+
+@media screen and (min-width: 552px) {
+  .add__input,
+  .add__textarea {
+    max-width: 600px;
+  }
 }
