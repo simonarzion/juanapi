@@ -313,7 +313,8 @@
     flex-direction: column;
   }
 
-  .change__modal-input {
+  .change__modal-input,
+  .change__modal-textarea {
     margin: 10px 0;
     width: 100%;
   }
