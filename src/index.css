@@ -21,7 +21,9 @@
   background: transparent;
   border: 0;
   border-radius: 50%;
-  background: crimson;
+  background: #ff004c;
+  box-shadow: 0 0 20px #ff004c;
+  cursor: pointer;
   font-size: 2rem;
   position: fixed;
   bottom: 20px;
@@ -51,7 +53,7 @@
   padding: 10px;
   background-color: var(--white);
   border: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1.2rem;
 }
 
@@ -66,14 +68,15 @@
 .task {
   background-color: var(--secondary);
   width: 90%;
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 20px auto;
   max-width: 800px;
+  box-shadow: 5px 5px 5px #00000080;
 }
 
 .task__header {
   background-color: var(--primary);
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   position: relative;
 }
 
@@ -165,7 +168,7 @@
   border: 0;
   border-radius: 50%;
   padding: 5px;
-  color: #01c801;
+  color: #79ff79;
   cursor: pointer;
   font-size: 1.3rem;
 }
@@ -227,7 +230,7 @@
   padding: 10px 20px;
   background-color: var(--white);
   border: 0;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .close__modal {
@@ -250,5 +253,77 @@
   .add__input,
   .add__textarea {
     max-width: 600px;
+  }
+}
+
+/*  */
+
+.change__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change__input-container {
+  flex: 1;
+  margin: 10px;
+}
+
+.change__btn-container {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
+
+.change__modal-input,
+.change__modal-textarea {
+  border: 0;
+  background-color: var(--primary);
+  font-size: 1.1rem;
+  padding: 5px;
+  margin: 10px;
+  width: 100%;
+  outline: none;
+  color: var(--white);
+}
+
+.change__modal-textarea {
+  resize: vertical;
+}
+
+.change__btn {
+  border: 0;
+  font-size: 1.1rem;
+  padding: 5px;
+  margin: 10px;
+  width: 100px;
+  border: 2px solid #ff004c;
+  background-color: var(--primary);
+  color: #ff004c;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.change__btn.done {
+  color: #79ff79;
+  border: 2px solid #79ff79;
+}
+@media screen and (max-width: 552px) {
+  .change__container {
+    flex-direction: column;
+  }
+
+  .change__modal-input {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .change__input-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .change__btn {
+    margin: 5px;
   }
 }
