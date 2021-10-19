@@ -3,7 +3,7 @@ import { FaCheck, FaEdit, FaTrash } from "react-icons/fa";
 import { deleteTask, getTasks, updateTask } from "../api";
 
 const Task = ({ task, setTasksToDisplay, setTasks }) => {
-  const { id, title, body, date } = task;
+  const { id, title, body, date, completed } = task;
   const [taskToUpdate, setTaskToUpdate] = useState({
     id: null,
     title: "",
@@ -41,13 +41,24 @@ const Task = ({ task, setTasksToDisplay, setTasks }) => {
     await refreshData();
   };
 
+  const completeTask = async () => {
+    await updateTask(id, { ...task, completed: !completed });
+    await refreshData();
+  };
+
   return (
     <div className="task">
       <div className="task__header">
-        <div className="task__complete-container">
-          <button className="task__complete">
-            <FaCheck />
-          </button>
+        <div className="task__complete-container" onClick={completeTask}>
+          <div className="task__complete-inner">
+            <div className="task__complete">
+              {completed && (
+                <button className="task__complete-btn">
+                  <FaCheck />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
 
         {changeModal ? (
