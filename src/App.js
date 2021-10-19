@@ -45,34 +45,39 @@ const App = () => {
       </button>
 
       {addModal && (
-        <>
-          <form className="add__modal" onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              value={newTask.title}
-              name="title"
-              type="text"
-              placeholder="Title"
-              className="add__input"
-            />
-            <textarea
-              onChange={handleChange}
-              value={newTask.body}
-              name="body"
-              type="text"
-              placeholder="Body"
-              className="add__textarea"
-            />
-            <button className="add__task-submit">Add Task</button>
-            <button
-              className="close__modal"
-              type="button"
-              onClick={() => setAddModal(false)}
-            >
-              <FaTimes />
-            </button>
-          </form>
-        </>
+        <form className="add__modal" onSubmit={handleSubmit}>
+          <div className="add__modal-inner">
+            <div className="close__modal">
+              <button
+                className="close__modal-btn"
+                type="button"
+                onClick={() => setAddModal(false)}
+              >
+                <FaTimes />
+              </button>
+            </div>
+
+            <div className="add__modal-content">
+              <input
+                onChange={handleChange}
+                value={newTask.title}
+                name="title"
+                type="text"
+                placeholder="Title"
+                className="add__input"
+              />
+              <textarea
+                onChange={handleChange}
+                value={newTask.body}
+                name="body"
+                type="text"
+                placeholder="Body"
+                className="add__textarea"
+              />
+              <button className="add__task-submit">Add Task</button>
+            </div>
+          </div>
+        </form>
       )}
 
       <Tasks
